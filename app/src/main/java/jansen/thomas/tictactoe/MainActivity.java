@@ -5,9 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-//import android.service.quicksettings.Tile;
-
-
 public class MainActivity extends AppCompatActivity {
     Game game;
 
@@ -35,9 +32,7 @@ public class MainActivity extends AppCompatActivity {
             case CIRCLE:
                 clickedButton.setText("O");
                 break;
-            case INVALID:
-                System.out.println("Invalid");
-                break;
+            case INVALID:                break;
         }
     }
 
