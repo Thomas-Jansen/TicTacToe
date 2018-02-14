@@ -3,19 +3,17 @@ package jansen.thomas.tictactoe;
 //import android.service.quicksettings.Tile;
 
 
-/**
- * Created by thomm on 12-2-2018.
- */
+import java.io.Serializable;
 
-public class Game {
+
+public class Game implements java.io.Serializable {
     final private int BOARD_SIZE = 3;
-    private Tile[][] board;
-
+    private static Tile[][] board;
     private Boolean playerOneTurn;  // true if player 1's turn, false if player 2's turn
     private int movesPlayed;
     private Boolean gameOver;
 
-    public Game() {
+    Game() {
         board = new Tile[BOARD_SIZE][BOARD_SIZE];
         for(int i=0; i<BOARD_SIZE; i++)
             for(int j=0; j<BOARD_SIZE; j++)
@@ -44,5 +42,11 @@ public class Game {
             clickedTile = Tile.INVALID;
         }
     return clickedTile;
+    }
+
+    public Tile getValue(int row, int column) {
+        Tile checkingTile = board[row][column];
+        System.out.println(checkingTile);
+        return checkingTile;
     }
 }
