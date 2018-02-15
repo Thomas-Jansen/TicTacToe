@@ -163,6 +163,6 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="New Game"
-        android:onClick="resetClicked" />
+        android:onClick="resetClicked"
+        android:text="New Game" />
 </LinearLayout>
