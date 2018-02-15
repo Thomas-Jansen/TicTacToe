@@ -17,6 +17,27 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             game = (Game) savedInstanceState.getSerializable("currentGame");
 
+            GameState gameState = ai.checkForWinner(game.movesPlayed);
+            TextView winnerText = findViewById(R.id.textView_winner);
+            switch(gameState) {
+                case PLAYER_ONE:
+                    winnerText.setText("Player one has won!");
+                    game.gameOver = true;
+                    break;
+                case PLAYER_TWO:
+                    winnerText.setText("Player two has won!");
+                    game.gameOver = true;
+                    break;
+                case DRAW:
+                    winnerText.setText("No one has won!");
+                    game.gameOver = true;
+                    break;
+                case IN_PROGRESS:
+                    winnerText.setText(" ");
+                    game.gameOver = false;
+                    break;
+            }
+
             for (int i = 1; i < 10; i++) {
                 int button_id = getResources().getIdentifier("button" + i, "id", getPackageName());
                 Button button = findViewById(button_id);
@@ -38,26 +59,9 @@ public class MainActivity extends AppCompatActivity {
                     case INVALID:
                         break;
                 }
-            }
-            GameState gameState = ai.checkForWinner(game.movesPlayed);
-            TextView winnerText = findViewById(R.id.textView_winner);
-            switch(gameState) {
-                case PLAYER_ONE:
-                    winnerText.setText("Player one has won!");
-                    game.gameOver = true;
-                    break;
-                case PLAYER_TWO:
-                    winnerText.setText("Player two has won!");
-                    game.gameOver = true;
-                    break;
-                case DRAW:
-                    winnerText.setText("No one has won!");
-                    game.gameOver = true;
-                    break;
-                case IN_PROGRESS:
-                    winnerText.setText(" ");
-                    game.gameOver = true;
-                    break;
+                if (game.gameOver) {
+                    button.setClickable(false);
+                }
             }
         }
         else
@@ -102,8 +106,15 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case IN_PROGRESS:
                 winnerText.setText(" ");
-                game.gameOver = true;
+                game.gameOver = false;
                 break;
+        }
+        if (game.gameOver) {
+            for (int i = 1; i < 10; i++) {
+                int button_id = getResources().getIdentifier("button" + i, "id", getPackageName());
+                Button button = findViewById(button_id);
+                button.setClickable(false);
+            }
         }
     }
 
@@ -113,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             int button_id = getResources().getIdentifier("button" + i, "id", getPackageName());
             Button button = findViewById(button_id);
             button.setText(" ");
+            button.setClickable(true);
             TextView winnerText = findViewById(R.id.textView_winner);
             winnerText.setText(" ");
         }

@@ -11,7 +11,7 @@ class ai implements Serializable{
                 if (Game.board[i][0] == Tile.CROSS) {
                     Game.state[0] = GameState.PLAYER_ONE;
                 }
-                else if (Game.board[i][0] == Tile.CROSS) {
+                else if (Game.board[i][0] == Tile.CIRCLE) {
                     Game.state[0] = GameState.PLAYER_TWO;
                 }
             }
@@ -19,7 +19,7 @@ class ai implements Serializable{
                 if (Game.board[0][i] == Tile.CROSS) {
                     Game.state[0] = GameState.PLAYER_ONE;
                 }
-                else if (Game.board[i][0] == Tile.CROSS) {
+                else if (Game.board[i][0] == Tile.CIRCLE) {
                     Game.state[0] = GameState.PLAYER_TWO;
                 }
             }
@@ -28,7 +28,7 @@ class ai implements Serializable{
             if (Game.board[0][0] == Tile.CROSS) {
                 Game.state[0] = GameState.PLAYER_ONE;
             }
-            else if (Game.board[0][0] == Tile.CROSS) {
+            else if (Game.board[0][0] == Tile.CIRCLE) {
                 Game.state[0] = GameState.PLAYER_TWO;
             }
         }
@@ -36,7 +36,7 @@ class ai implements Serializable{
             if (Game.board[0][2] == Tile.CROSS) {
                 Game.state[0] = GameState.PLAYER_ONE;
             }
-            else if (Game.board[0][2] == Tile.CROSS) {
+            else if (Game.board[0][2] == Tile.CIRCLE) {
                 Game.state[0] = GameState.PLAYER_TWO;
             }
         }
