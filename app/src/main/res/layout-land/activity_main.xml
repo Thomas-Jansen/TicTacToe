@@ -7,6 +7,16 @@
     android:orientation="vertical"
     tools:context="jansen.thomas.tictactoe.MainActivity">
 
+    <TextView
+        android:id="@+id/textView_winner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" "
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text=" " />
+
     <GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="wrap_content"

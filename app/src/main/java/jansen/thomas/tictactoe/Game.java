@@ -1,20 +1,25 @@
 package jansen.thomas.tictactoe;
 
+import android.util.Log;
+
 import java.io.Serializable;
 
 class Game implements Serializable {
     final private int BOARD_SIZE = 3;
-    private static Tile[][] board;
-    private Boolean playerOneTurn;  // true if player 1's turn, false if player 2's turn
-    private int movesPlayed;
-    private Boolean gameOver;
+    static Tile[][] board;
+    static GameState[] state;
+    Boolean playerOneTurn;  // true if player 1's turn, false if player 2's turn
+    int movesPlayed;
+    Boolean gameOver;
+
 
     Game() {
         board = new Tile[BOARD_SIZE][BOARD_SIZE];
         for(int i=0; i<BOARD_SIZE; i++)
             for(int j=0; j<BOARD_SIZE; j++)
                 board[i][j] = Tile.BLANK;
-
+        state = new GameState[1];
+        state[0] = GameState.IN_PROGRESS;
         playerOneTurn = true;
         gameOver = false;
     }
@@ -41,8 +46,6 @@ class Game implements Serializable {
     }
 
     Tile getValue(int row, int column) {
-        Tile checkingTile = board[row][column];
-        System.out.println(checkingTile);
-        return checkingTile;
+        return board[row][column];
     }
 }
