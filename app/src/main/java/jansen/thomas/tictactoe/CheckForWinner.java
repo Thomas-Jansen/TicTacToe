@@ -2,7 +2,7 @@ package jansen.thomas.tictactoe;
 
 import java.io.Serializable;
 
-class ai implements Serializable{
+class CheckForWinner implements Serializable{
 
     static GameState checkForWinner(int movesPlayed) {
 
@@ -32,7 +32,7 @@ class ai implements Serializable{
                 Game.state[0] = GameState.PLAYER_TWO;
             }
         }
-        if ((Game.board[0][2] == Game.board[1][1]) && (Game.board[1][1] == Game.board[2][0]) && (Game.board[0][0] != Tile.BLANK)) {
+        if ((Game.board[0][2] == Game.board[1][1]) && (Game.board[1][1] == Game.board[2][0]) && (Game.board[0][2] != Tile.BLANK)) {
             if (Game.board[0][2] == Tile.CROSS) {
                 Game.state[0] = GameState.PLAYER_ONE;
             }
@@ -43,7 +43,6 @@ class ai implements Serializable{
         else if (movesPlayed == 9) {
             Game.state[0] = GameState.DRAW;
         }
-
         return Game.state[0];
     }
 }

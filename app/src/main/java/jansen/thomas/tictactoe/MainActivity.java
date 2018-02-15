@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             game = (Game) savedInstanceState.getSerializable("currentGame");
 
-            GameState gameState = ai.checkForWinner(game.movesPlayed);
+            GameState gameState = CheckForWinner.checkForWinner(game.movesPlayed);
             TextView winnerText = findViewById(R.id.textView_winner);
             switch(gameState) {
                 case PLAYER_ONE:
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-        GameState gameState = ai.checkForWinner(game.movesPlayed);
+        GameState gameState = CheckForWinner.checkForWinner(game.movesPlayed);
         TextView winnerText = findViewById(R.id.textView_winner);
         switch(gameState) {
             case PLAYER_ONE:
