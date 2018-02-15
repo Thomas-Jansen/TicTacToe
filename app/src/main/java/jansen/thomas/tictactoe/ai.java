@@ -19,7 +19,7 @@ class ai implements Serializable{
                 if (Game.board[0][i] == Tile.CROSS) {
                     Game.state[0] = GameState.PLAYER_ONE;
                 }
-                else if (Game.board[i][0] == Tile.CIRCLE) {
+                else if (Game.board[0][i] == Tile.CIRCLE) {
                     Game.state[0] = GameState.PLAYER_TWO;
                 }
             }
