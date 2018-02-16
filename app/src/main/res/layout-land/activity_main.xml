@@ -20,7 +20,7 @@
     <GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
         android:layout_weight="1"
         app:layout_constraintBottom_toTopOf="@+id/buttonNewGame"
@@ -31,8 +31,8 @@
 
         <Button
             android:id="@+id/button1"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_column="0"
             android:layout_row="0"
             android:onClick="tileClicked"
@@ -45,8 +45,8 @@
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_column="1"
             android:layout_row="0"
             android:onClick="tileClicked"
@@ -59,8 +59,8 @@
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_column="2"
             android:layout_row="0"
             android:onClick="tileClicked"
@@ -73,8 +73,8 @@
 
         <Button
             android:id="@+id/button4"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_column="0"
             android:layout_row="1"
             android:onClick="tileClicked"
@@ -87,8 +87,8 @@
 
         <Button
             android:id="@+id/button5"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_column="1"
             android:layout_row="1"
             android:onClick="tileClicked"
@@ -101,8 +101,8 @@
 
         <Button
             android:id="@+id/button6"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_column="2"
             android:layout_row="1"
             android:onClick="tileClicked"
@@ -115,8 +115,8 @@
 
         <Button
             android:id="@+id/button7"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_column="0"
             android:layout_row="2"
             android:onClick="tileClicked"
@@ -129,8 +129,8 @@
 
         <Button
             android:id="@+id/button8"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_column="1"
             android:layout_row="2"
             android:onClick="tileClicked"
@@ -143,8 +143,8 @@
 
         <Button
             android:id="@+id/button9"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_column="2"
             android:layout_row="2"
             android:onClick="tileClicked"

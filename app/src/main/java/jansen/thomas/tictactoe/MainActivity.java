@@ -9,6 +9,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     Game game;
 
+//  When game is started, check for saved game
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState != null) {
             game = (Game) savedInstanceState.getSerializable("currentGame");
-
+//          Check for a winner within saved game
             GameState gameState = CheckForWinner.checkForWinner(game.movesPlayed);
             TextView winnerText = findViewById(R.id.textView_winner);
             switch(gameState) {
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     game.gameOver = false;
                     break;
             }
-
+//          Reset all buttons to their saved state
             for (int i = 1; i < 10; i++) {
                 int button_id = getResources().getIdentifier("button" + i, "id", getPackageName());
                 Button button = findViewById(button_id);
@@ -64,18 +65,21 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+//      If no saved game is found, create a new one
         else
             game = new Game();
     }
 
+//  onClickListener for buttons
     public void tileClicked(View view) {
 
         int id = view.getId();
         String coordinates = (String) view.getTag();
         Button clickedButton = findViewById(id);
-
+//      Get button coordinates stored in tag
         int row = Character.getNumericValue(coordinates.charAt(0));
         int column = Character.getNumericValue(coordinates.charAt(1));
+//      Change the button text
         Tile tile = game.draw(row, column);
 
         switch(tile) {
@@ -88,9 +92,10 @@ public class MainActivity extends AppCompatActivity {
             case INVALID:
                 break;
         }
-
+//      Check for a winner
         GameState gameState = CheckForWinner.checkForWinner(game.movesPlayed);
         TextView winnerText = findViewById(R.id.textView_winner);
+//      Output winner text
         switch(gameState) {
             case PLAYER_ONE:
                 winnerText.setText("Player one has won!");
@@ -109,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 game.gameOver = false;
                 break;
         }
+//      If there is a winner, make the buttons unclickable
         if (game.gameOver) {
             for (int i = 1; i < 10; i++) {
                 int button_id = getResources().getIdentifier("button" + i, "id", getPackageName());
@@ -117,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
+//  Create a new game when reset button is pressed and set all text to normal
     public void resetClicked(View view) {
         game = new Game();
         for (int i = 1; i < 10; i++) {
@@ -129,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
             winnerText.setText(" ");
         }
     }
-
+//  When app is closed or phone rotated, save current game
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);

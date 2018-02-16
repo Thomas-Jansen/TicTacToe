@@ -3,8 +3,12 @@ package jansen.thomas.tictactoe;
 import java.io.Serializable;
 
 class CheckForWinner implements Serializable{
-
-    static GameState checkForWinner(int movesPlayed) {
+/*
+Check every scenario, to see if there is a winner
+e.g. Button 1 and 2 are identical, button 1 and 3 are identical and
+button 3 is not Blank. Than check which player has won.
+*/
+static GameState checkForWinner(int movesPlayed) {
 
         for (int i = 0; i < 3; i++) {
             if ((Game.board[i][0] == Game.board[i][1]) && (Game.board[i][1] == Game.board[i][2]) && (Game.board[i][0] != Tile.BLANK)) {
@@ -40,6 +44,7 @@ class CheckForWinner implements Serializable{
                 Game.state[0] = GameState.PLAYER_TWO;
             }
         }
+//      If all buttons are pressed and no one has won, it's a draw
         else if (movesPlayed == 9) {
             Game.state[0] = GameState.DRAW;
         }
